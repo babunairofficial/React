@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 export default function About() {
+    
     const [myStyle,setMyStyle]= useState({
         color: "black",
         backgroundColor: "white"
@@ -12,17 +13,26 @@ export default function About() {
             setMyStyle({
                 color: "white",
                 backgroundColor: "black",
-                border: "1px solid white"               
+                border: "1px solid white",
+                buttonColor: "blue",
+                buttonBackgroundColor: "white"               
             })
             setBtnText("Activate Light Mode");
         }           
         else{
             setMyStyle({
                 color: "black",
-                backgroundColor: "white"
+                backgroundColor: "white",
+                buttonColor: "white",
+                buttonBackgroundColor: "blue"   
             })
             setBtnText("Activate Dark Mode");              
         }
+    }
+
+    const buttonStyle = {
+        color: myStyle.buttonColor,
+        backgroundColor: myStyle.buttonBackgroundColor
     }
 
   return (
@@ -67,7 +77,7 @@ export default function About() {
             </div>
         </div>
         <div className="container my-3">
-            <button type="button" className="btn btn-primary" onClick={toggleStyle}>{btnText}</button>
+            <button type="button" className="btn" style={buttonStyle} onClick={toggleStyle}>{btnText}</button>
         </div>
             
     </div>    
