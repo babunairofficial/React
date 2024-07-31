@@ -26,6 +26,13 @@ export default function TextForm(props) {
     settext(event.target.value);
   }
 
+  //copy text
+  const handleCopy = ()=>{
+    var text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
+
   const [text, settext] = useState("");
   const [result, setResult] = useState("");
   return (
@@ -39,6 +46,7 @@ export default function TextForm(props) {
           <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
           <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
           <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear text</button>
+          <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy text</button>
           
           <div className="mb-3 mt-3">
             <h2>Result:</h2>          
