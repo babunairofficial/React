@@ -1,17 +1,285 @@
 import React, { Component } from 'react'
 
 export class NewsItem extends Component {
+  articles = [
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The Associated Press",
+        "title": "Harris has secured enough Democratic delegate votes to become their party's nominee, chair says - The Associated Press",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPeDdDQW10anRjSmNRVV8yQ2hjT2k5ZXBTalN3ZXJ6S3hDVVowM2FFWlo5MTNFUVBvX01oMDVBSlVWeExCWGo3WUV4ckdIdS1DcXl0TlIyWjlIUF9xNVlSY2p6ekpOdnBqcHg0aWx2R0RQeGJPd0E3S2tqNVJJV2NocDBFb0xlREdmS0doVGg0eHV5UQ?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T18:36:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "Axios",
+        "title": "In photos: James Baldwin at 100 - Axios",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRVI1R0hPZ1NoRW9rcW9jb2lrR1g3bE1hM2twSnc5Y2dlTHptLWlCTUlQbndkZEdvU1Vzd2cwT3doUkkxUi1FU1R6ZjR6cU92dUtfQW9sUVhZZ1RKMm5IbG9ZTXlxQ0VyNGYzWmEyU3RuOG5GZEUwZkZFZ2xXelpNRA?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T18:13:32Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": null,
+        "title": "Delta CEO offers employees free flights after CrowdStrike-Microsoft chaos - CNBC",
+        "description": null,
+        "url": "https://consent.google.com/m",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T18:05:43Z",
+        "content": "We use cookies and data to\r\n<ul><li>Deliver and maintain Google services</li><li>Track outages and protect against spam, fraud, and abuse</li><li>Measure audience engagement and site statistics to un… [+1139 chars]"
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The Washington Post",
+        "title": "Justice Department sues TikTok, alleging it broke child privacy law - The Washington Post",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNSWRMc3UzV3Rrd3RjRlZDRjhxbWM4ZUx2NlRGblVOTU94X05lbXFXUHpDS2lmc0JZaTdMTWhlTVNNYWx3OW9Oel9KWDVOV0l0TjFXLWFKZk9yTV95N08yYmwxeXV2SVZ1Rlo3dDNDRHRIX3JWSUZpWmhWUkdBZjlGdF9MNU5fWmJiR05qWGJfMA?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T17:50:18Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The Associated Press",
+        "title": "Israel-Hamas war latest: International calls for cease-fire grow after assassinations in the Mideast - The Associated Press",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQWm9HVndSSTVYX29ncWQwRC10bnFuNG10TU9mdDFiWFpSNmxEQnhQZUoyX0NUd24zejdEbHUxQVZoQmtNaXdzcUtFazJ0alFPV1VSMW1lRG9qMWFCdnZ4N25OUUV4dFZfNVZ6NFFYWHJFMnlBbE5XeXBzNmVyNi1jdDk1TlRrZWUzVnMtQlN2UG96dDlkbmhxQWxKWHVSdw?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T17:25:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The New York Times",
+        "title": "Olympic Officials Defend Fighters’ Eligibility in Women’s Boxing Controversy - The New York Times",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcHVpbzZSWnUzMFNjMHp4X1A4Q1FYdzZXRDF1aUxJTjJ6T0ZpMzZvV213UFlhWmRNZnZ6V1pndV96T3lXaHpHcllKUFU2ZE9pYTZpQ1dTMzRzWnJUUWtYb0h4cHhVeWFqWDlIMFBkeUowM0I3SUV0aHE1eE8wbnlnOVFCSmUxWERUc2E1OHdESmc4bW9L?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T17:21:37Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "CNBC",
+        "title": "Kamala Harris raised $310 million in July, dwarfing Trump haul for month - CNBC",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQa1d2RHVJc25JdDVfdG1EVEZ3bEhjN05aMVdTNXBzVVc1d2RnMHkyb3dUZWhXc1ZrTzM3dFBZWkhOQUsyQWJla0tjTHcwTFNOcHRNRFowTXBPcXBlZXhYNE1wYThGRDdKWVk1R1ZyODBua0FLUjR0alhacEJSM3pBTFpmMNIBiAFBVV95cUxQWDZ1TUFJZ1FtbVVQNWsybG5kRUwzamJfZmc2d3J2Rm4zS1RQWlpra1dvMUJlRXVobWV0aGtyaHJRS1l6T1I0cEFJbERBTzYyV2RDdzNZbkRWcnFsS3lYT2VwLXVJUi1VeHV0d0dIUWNtUU51RWV0UkNSWWhxd3RFNXZhZ1BKSEZ3?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T17:00:21Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "Salon",
+        "title": "Cancer rates are on the rise for younger generations — and obesity may be a big reason why - Salon",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMno3cmZKZ0dwUTViT0RuZnZuREc5LTBWLVlSUG1wQXVvVUV5anpsZm1SSS0zcG1UVDVIQV9ScFhNN05jTGdJODNpd3lIU0RYbWZ4Y256MnhzaHhpT28tM002XzMzSmlLaWhmMl80WmdYWUM3eFF3ZVFYWlI5eVByc0Jxbzk0emVLWnROQW1FamFmdHVUVUM2d1FoMkR6UkMyMVkteEd3am9jQno4VlZjbDZZZTBqTl9TbndZQlNMMnA?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T16:17:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "CNN",
+        "title": "Markets sink on weaker-than-expected jobs report as fears rise of a slowing economy - CNN",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNX0tlTlkzOEFxVUF5dUhFSUdGVWdNc3RQYU93VUg3X1BwN3VxR2ZhZ1otYXEzX1pTdWFQZnNib0ZMUkNvejQwdHFqWFVxN1B5MEJuNFUza2gxOGJrd1VsbW5WaXh1NWp2aVpETXFYNW10WkRhX2kyWldBU3RzRUc1UnlhOA?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T15:58:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The Associated Press",
+        "title": "UK police brace for more far-right protests as government warns of tough response - The Associated Press",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcm1zb09GN2JPQWc1T0ZOX05hYzY4Z0pPSi1IV2NrZmM2VDEzSmExbmxWRVgyNDExVWxUNFVKQnBKUG9iYjFnS3Q0YzJFQk1xMU9qTmVxWklaWktLcXBqRnV2QVJPM2RobGxjMGlvUGg3Z2dRNWYtUHJiNlBHNjZPdHkxVUJ1dXFFY0RXVm1Yb3FmTW1kUWtSRVFTRVBOTl85N3dKUndnWEU?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T15:52:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "CNBC",
+        "title": "NASA weighs Boeing vs. SpaceX choice in bringing back Starliner astronauts - CNBC",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQjBGZThhdnc4eERLblZPV2dlZ2JUODBxQ2RLLWlFSDNvNGM4d195aU5EYlJ4Q1FSamp3cUdOSlVVN2Z3eTlKRWUxLUI2TzlFeUNvdUNiYmUxczdxU0twZ2MwbnJnQWFweFJFQ2tjdUFCRzFsdE9vbVlsc0NEbDEyYzFMbmxqSzgxVGp4OGZReWZXX29FRl91Rw?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T15:49:36Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Mary Gilbert",
+        "title": "Tropical Storm Debby forecast to hit Florida this weekend with torrential rain and wind - CNN",
+        "description": "A tropical storm warning has been hoisted and a state of emergency declared in parts of Florida in anticipation of Tropical Storm Debby, which could unleash days of rain.",
+        "url": "https://www.cnn.com/2024/08/02/weather/florida-tropical-depression-storm-debby-hurricane-climate/index.html",
+        "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/cnn-digital-tracker-hurricane-satellite-visible-homepage-080224-noon.png?c=16x9&q=w_800,c_fill",
+        "publishedAt": "2024-08-02T15:40:00Z",
+        "content": "A tropical storm warning has been issued and a state of emergency declared in parts of Florida in anticipation of Tropical Storm Debby a storm that hasnt yet formed but could unleash multiple days of… [+4825 chars]"
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "PEOPLE",
+        "title": "Justin Timberlake Looks Stoic During DWI Court Hearing as Judge Revokes Driving Privileges in New York - PEOPLE",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNS19iWGFZNDY3ajJiT21DZ2NvdFNWNEZBOW9CMzNtWlVydU5ZQWtmMk4tNzZwNHFQOGtUcV8ybDRIbUptMDdzdGNCOUI3RjRJckZ4WEV4dVYydEZydVY5MlAyTXFfam8zbGg3YkNnc1NyUFZ6NFlYNEk1MVRUaU9uczhuSHVLcHU3elFPWHgyU204cFd3aHc1WFMwV0x1UmZmTUoyU09aaDRiWDkxcHc?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T15:40:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "ESPN",
+        "title": "U.S. men's Olympic team out after Morocco rout - ESPN",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQQTdzM3lfZVI5Ui1XX1pIdHF3OG1aRXZ4ODVuaEhGSWlVT3h1aTVvRkFUR3pxX1VPcElxVzlyRG9qMlBjVDgwbmlmcld3SE9GU252cVI4TEx4NndXOHZCOUtXOVgzQ0ViVGRVQ3A5aW1DVU43VFJPSDk1N3F3RGNFZjRjWmZqTG9RN1FWUlM0bnVoRGgzSE9QZDVSemtjbU9SYUpRSExaSGk?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T15:18:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": null,
+            "name": "Variety"
+        },
+        "author": "Jordan Moreau",
+        "title": "Box Office: ‘Trap’ Makes $2.2 Million in Previews - Variety",
+        "description": "'Trap' makes $2.2 million in previews at the box office.",
+        "url": "https://variety.com/2024/film/box-office/box-office-trap-previews-1236093254/",
+        "urlToImage": "https://variety.com/wp-content/uploads/2024/08/Trap-4.jpg?w=1000&h=563&crop=1",
+        "publishedAt": "2024-08-02T15:10:00Z",
+        "content": "Director M. Night Shyamalan is springing his latest Trap.\r\nShyamalans new movie, which stars Josh Hartnett as a serial killer lured into a police sting operation while at a pop concert with his daugh… [+1352 chars]"
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "The Guardian US",
+        "title": "Who is Josh Shapiro, Kamala Harris’s potential vice-presidential pick? - The Guardian US",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQejZCWlh5ekt0S1h4bnpMekxGTGhoemhDN1BFemc1ZENibkpBVVdxVVlWTHJ4S015eTZocXdIQ0FRdENGZ25DU0IydVJad3h3LVRkZko4SjVZdTFqRTdvSHlvLV9iWGZyVFFoN0Vwd3ptd2FlOU5WbjZhNnB2V2VzMHJHZFZoYTNfcUHSAYoBQVVfeXFMTjdwX1RLNHZobWJvY1V6ODRDZWpLZjJ5QmdXQzh5Vl9Yc09ET2p3V3V5cUtXb1RiZFRNeTRsaUJJTEFIRkVRQlhjM1RMUWN2WkhCS2JweFJnTWhVRTZBdG9tT0pUTXZDOG04QURrbXBZdFUwUl91bkowWkUydVZDazhDbkNIZUV3R0pR?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T14:47:00Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "ars-technica",
+            "name": "Ars Technica"
+        },
+        "author": "Andrew Cunningham",
+        "title": "Intel extends warranties by two years for crash-prone Core desktop CPUs - Ars Technica",
+        "description": "Intel's microcode fix won't help CPUs that are already damaged.",
+        "url": "https://arstechnica.com/gadgets/2024/08/intel-extends-warranties-by-two-years-for-crash-prone-core-desktop-cpus/",
+        "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2024/08/IMG_0954-760x380.jpeg",
+        "publishedAt": "2024-08-02T14:38:26Z",
+        "content": "Enlarge/ Even mainstream CPUs like the Core i5-13400 could theoretically be affected by Intel's crashing issues.\r\n82\r\nIntel will be releasing a microcode update to prevent further damage to crashing … [+2110 chars]"
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "BBC.com",
+        "title": "Why Putin thinks he's the winner in Russia's prisoner swap with the West - BBC.com",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9oRnU2d2tzckFzU0JuVzkyMVhCMFJfUjZ5YlV4OTRjU2s3ZWRwN1dNTmllNExzb01OVndncXJpZl9hekk3b1hNUUZudEVYb2xGLWNDSVFvRnQ5QdIBX0FVX3lxTFBzUXhPNVF1Y2tOSElvOWx3UlVrVEVRc2I3aUd2RXV2anFFeGtNWXdVZFpTaTdCWjk4SmxmNS1KaEFOczM5ck1USzJ0NjU4OHg3TkczUzM3YjhzV3hYNlhn?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T13:50:51Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "Ynetnews",
+        "title": "Hezbollah evacuates headquarters, equipment from Dahieh, report says - Ynetnews",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBzVDVPVTVxX2JJTjJOaGZQVC1TLTBDaENxNFY2bTMwNHhFNi1KdnJNdno4QUlvS3M5VmRDY29tUENtWlBDSTEtTW55LWdLWTRBNnY5Zw?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T13:50:35Z",
+        "content": null
+    },
+    {
+        "source": {
+            "id": "google-news",
+            "name": "Google News"
+        },
+        "author": "Yahoo Finance",
+        "title": "Inte stock plummets most in 40 years, as company suspends dividend, cuts jobs amid restructuring - Yahoo Finance",
+        "description": null,
+        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOUHdmaVdjVzI2VVZpYWlyZHlZMzRFVFp3V3lPU2RjeU16RncxRl9yWkFNLXZTZnlPUHBkbHRyd0t3T2w3N0RpWjhIYWZlUXBDbVdpZWp5a3FPemVfSjNyd2RObm50MjdGOU85YlNfQUVReDNFRy1DWjJvbDA0U2NKVkV6TFZPc0U2TzhhMEFNMXJfU1g2MDd2REZiNlprVXIyazJpM2lmZ01tbHhwLUVGdmhoTGt6bXY1NnhLOGlITy12OE4wQmpuakVvVDFSQzhuanV1U3hSaw?oc=5",
+        "urlToImage": null,
+        "publishedAt": "2024-08-02T13:44:53Z",
+        "content": null
+    }
+]
+  constructor(){
+    super();
+    this.state ={
+      articles : this.articles,
+      loading :false
+    } 
+  }
   render() {
-    let {title, description} = this.props;
+    let {title, description,imageUrl,newsUrl} = this.props;
     return (
-      <div>
-        
+      <div className='my-3'>        
         <div className="card" style={{width: "18rem"}}>
-          <img src="..." className="card-img-top" alt="..." />
+          <img src={imageUrl} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
-            <a href="/" className="btn btn-primary">Go somewhere</a>
+            <a href="/" className="btn btn-sm btn-primary">Read more...</a>
           </div>
         </div>
       </div>
